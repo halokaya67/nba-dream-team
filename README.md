@@ -1,4 +1,4 @@
-### Project Name: NBA Dream Team
+# Project Name: NBA Dream Team
 
 ## Description 
 
@@ -112,12 +112,12 @@ aboutMe: String
 
 ## Links
 
-# Trello
+### Trello
 Trello Link
 
-# Git
+### Git
 https://github.com/halokaya67/nba-dream-team
 Deploy Link
 
-# Slides
+### Slides
 Slides Link
