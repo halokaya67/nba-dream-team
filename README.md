@@ -1,4 +1,4 @@
-# Project Name: NBA Dream Team
+# NBA Dream Team
 
 ## Description 
 
