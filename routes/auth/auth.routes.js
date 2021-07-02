@@ -36,9 +36,9 @@ router.post("/signUp", (req,res,next) => {
 
 
   //check for strong passwords
-  let passRegEx = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+  let passRegEx = /^(?=.*[A-Z])(?=.*[!@#$&*_])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,16}$/
   if (!passRegEx.test(password)) {
-    res.render('auth/signUp', {error: 'Password needs to have a special character a number and be 6-16 characters'})
+    res.render('auth/signUp', {error: 'Password needs to have an uppercase character, a special character, a number and be 6-16 characters'})
     // To tell JS to come out off this function
     return;
   }
