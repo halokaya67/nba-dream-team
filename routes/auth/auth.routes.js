@@ -14,7 +14,7 @@ router.get("/logIn", (req, res, next) => {
   res.render("auth/logIn");
 });
 
-// Post Sign Up 
+// Post sign up 
 
 router.post("/signUp", (req,res,next) => {
     const {username, email, password} = req.body
