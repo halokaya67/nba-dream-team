@@ -93,13 +93,14 @@ Add a competition mode where teams can compete against each other.
 ## Models
 
 User model
-
+```
 username: String
-email   : String
+email: String
 password: String
+```
 
 Profile model
-
+```
 imageUrl: String
 username: String
 email: String
@@ -109,6 +110,7 @@ country: String
 favouriteTeam: Array
 favouritePlayers: Array
 aboutMe: String
+```
 
 ## Links
 
