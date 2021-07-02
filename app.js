@@ -19,7 +19,7 @@ const app = express();
 require("./config")(app);
 
 // default value for title local
-const projectName = "nba-dream-team";
+const projectName = "NBA DREAM TEAM";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
@@ -28,6 +28,8 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 const index = require("./routes/index");
 app.use("/", index);
 
+const authRoutes = require('./routes/auth/auth.routes')
+app.use("/", authRoutes);
 
 
 
