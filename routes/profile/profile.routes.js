@@ -1,4 +1,4 @@
-const Router = require('express')
+const router = require('express').Router();
 const UserModel = require('../../models/User.model')
 
 router.get('/profile', (req,res,next) => {
@@ -9,4 +9,4 @@ router.get('profile/edit', (req,res,next) => {
     res.render(profile/profile-edit)
 })
 
-module.exports= Router
+module.exports = Router
