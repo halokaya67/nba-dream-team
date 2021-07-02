@@ -1,20 +1,12 @@
 const router = require('express').Router();
-const UserModel = require('../models/User.model');
-const bcrypt = require('bcrypt');
-
-
-/* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
-
+const bcrypt = require('bcryptjs');
+const UserModel = require('../../models/User.model');
 
 // Get Sign up page
 
 router.get("/signUp", (req, res, next) => {
   res.render("auth/signUp");
 });
-
 
 // Get Log in page
 
