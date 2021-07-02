@@ -19,10 +19,10 @@ router.get("/logIn", (req, res, next) => {
   res.render("auth/logIn");
 });
 
-// Post Sign Up 
+// Post sign up 
 
-router.post("logIn", (req,res,next) => {
-    const {username, email, password} = User
+router.post("signup", (req,res,next) => {
+    const {username, email, password} = req.body
 
     if (!username || !email || !password) {
       res.render('auth/signUp.hbs', {error: 'Please enter all fields'})
