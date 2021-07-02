@@ -14,7 +14,20 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
-  }
+  },
+  age: Number,
+  profilePic: String,
+  country: String,
+  AboutMe: String,
+  favouriteTeam: String,
+  favouritePlayers: [{
+    ref: 'player',
+    type: mongoose.Schema.Types.ObjectId
+  }],
+  myTeams: [{
+    ref: 'team',
+    type: mongoose.Schema.Types.ObjectId
+  }]
 });
 
 const UserModel = mongoose.model("User", userSchema);

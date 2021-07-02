@@ -8,12 +8,6 @@ router.get("/signUp", (req, res, next) => {
   res.render("auth/signUp");
 });
 
-// Get Log in page
-
-router.get("/logIn", (req, res, next) => {
-  res.render("auth/logIn");
-});
-
 // Post sign up 
 
 router.post("/signUp", (req,res,next) => {
@@ -61,5 +55,41 @@ router.post("/signUp", (req,res,next) => {
     })
 
 })
+
+// Get Log in page
+
+router.get("/logIn", (req, res, next) => {
+  res.render("auth/logIn");
+});
+
+// Post Log in page
+
+router.post('/logIn', (req, res, next) => {
+  const { username, password } = req.body;
+
+  UserModel.findOne({ username })
+    .then((user) => {
+      if (user) {
+        let isValid = bcrypt.compareSync(password, user.password);
+        if (isValid) {
+          req.session.loggedInUser = user;
+          req.app.locals.isLoggedIn = true;
+          res.redirect('/profile');
+        } else {
+          res.render('auth/logIn', { error: 'Invalid password!"}' })
+        }
+      } else {
+        res.render('auth/logIn', { error: 'User not found!' });
+      }
+    }).catch((err) => {
+      next(err);
+    })
+});
+
+router.get('/logOut', (req, res, next) => {
+  req.session.destroy();
+  req.app.locals.isLoggedIn = false;
+  res.redirect('/');
+});
 
 module.exports = router;
