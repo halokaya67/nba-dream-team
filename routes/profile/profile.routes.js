@@ -1,12 +1,12 @@
-const Router = require('express')
+const router = require('express').Router();
 const UserModel = require('../../models/User.model')
 
 router.get('/profile', (req,res,next) => {
-    res.render('profile/profile')
+    res.render('profile/profile');
 })
 
 router.get('profile/edit', (req,res,next) => {
-    res.render(profile/profile-edit)
+    res.render('profile/profile-edit');
 })
 
-module.exports= Router
+module.exports = router;

@@ -1,12 +1,60 @@
 body {
+  padding: 0;
+  margin: 0;
+  background-image: url(../images/background.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+nav {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+.brand {
+  width: 40px;
+}
+
+.container {
+  height: 800px;
+  width: 100%;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+#homepage-list {
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
-h1 {
-  color: 15px;
+.homepage-container {
+  width: 400px;
+  margin-right: 50px;
+  margin-left: 50px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.678);
+}
+
+#signup-link {
+  color: #80ffdb;
+}
+
+button {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+}
+
+a img {
+  width: 50px;
+}
+
+#signup-container {
+  width: 450px;
+  height: 700px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+#login-container {
+  width: 450px;
+  height: 700px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
