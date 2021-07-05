@@ -67,3 +67,16 @@ a img {
   background-color: #dc3545;
   cursor: auto;
 }
+
+a.nav-link {
+  color: white;
+}
+
+a.nav-link:hover {
+  color: rgb(175, 175, 175);
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-user {
+  width: 250px;
+}
