@@ -5,8 +5,16 @@ router.get('/profile', (req,res,next) => {
     res.render('profile/profile')
 })
 
-router.get('profile/edit', (req,res,next) => {
+router.post('/profile', (req,res,next) => {
     res.render(profile/profile-edit)
 })
 
-module.exports = Router
+router.post('/profile', (req,res,next) => {
+    res.render(profile/teams-edit)
+})
+
+
+
+
+module.exports = router
+
