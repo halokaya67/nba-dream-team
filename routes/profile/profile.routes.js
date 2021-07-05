@@ -6,11 +6,11 @@ router.get('/profile', (req,res,next) => {
 })
 
 router.post('/profile', (req,res,next) => {
-    res.render(profile/profile-edit)
+    res.req.params('profile/profile-edit')
 })
 
 router.post('/profile', (req,res,next) => {
-    res.render(profile/teams-edit)
+    res.req.params('profile/teams-edit')
 })
 
 
