@@ -23,7 +23,7 @@ router.post("/signUp", (req,res,next) => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   // check if the email does not match the regex
   if ( !re.test(email)) {
-    res.render('auth/signUp', {error: 'Pleae enter a valid format'})
+    res.render('auth/signUp', {error: 'Please enter a valid format!'})
     // To tell JS to come out off this function
     return;
   }
@@ -48,10 +48,10 @@ router.post("/signUp", (req,res,next) => {
 
   UserModel.create({username, email, password: hash})
     .then(() => {
-        res.redirect('/profile/profile')
+      res.redirect('/profile');
     })
     .catch((err) => {
-        next(err)
+      next(err);
     })
 
 })
@@ -74,9 +74,9 @@ router.post('/logIn', (req, res, next) => {
         if (isValid) {
           req.session.loggedInUser = user;
           req.app.locals.isLoggedIn = true;
-          res.redirect('/profile/profile');
+          res.redirect('/profile');
         } else {
-          res.render('auth/logIn', { error: 'Invalid password!"}' })
+          res.render('auth/logIn', { error: 'Invalid password!"}' });
         }
       } else {
         res.render('auth/logIn', { error: 'User not found!' });

@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
   age: Number,
   profilePic: String,
   country: String,
-  AboutMe: String,
-  favouriteTeam: String,
-  favouritePlayers: [{
+  aboutMe: String,
+  favTeam: String,
+  favPlayers: [{
     ref: 'player',
     type: mongoose.Schema.Types.ObjectId
   }],

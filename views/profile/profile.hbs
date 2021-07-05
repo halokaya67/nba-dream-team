@@ -1,22 +1,30 @@
-<html lang="en">
+<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <a href="/profile" class="navbar-brand p-2 fs-4">
+            <img class="brand me-1" src="/images/favicon.png" alt="brand" />
+            NBA Dream Team
+        </a>
+        <ul class="d-flex flex-row mx-0 m-auto">
+            {{#if isLoggedIn}}
+                <li class="nav-item d-flex align-items-center justify-content-end nav-user">
+                    <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{user.username}}!</a></p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/logOut">Log Out</a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY PROFILE PAGE</title>
-</head>
+<a href="/profile/edit" class="text-decoration-none  button">
+    <button class="btn btn-primary fw-bold px-5 py-2 mb-4">
+        Edit Profile
+    </button>
+</a>
 
-<body>
-    <form method = "POST" action= "/profile/profile-edit">
-        {{!-- <label>Profile edit</label> --}}
-        {{!-- <input type="edit profile" placeholder="Edit your profile"> --}}
-        <button>Edit profile</button>
-    </form>
-    <br>
-    <form method = "POST" action= "/profile/teams-edit">
-        <button>Edit teams</button>
-    </form>
-</body>
-
-</html>
+<a href="/myTeam/edit" class="text-decoration-none  button">
+    <button class="btn btn-primary fw-bold px-5 py-2 mb-4">
+        Edit My Team
+    </button>
+</a>
