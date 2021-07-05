@@ -18,7 +18,7 @@ router.get('/profile/edit', (req, res, next) => {
 
     UserModel.find({ username })
         .then((user) => {
-            res.render('profile/profile-edit', {user});
+            res.render('profile/profile-edit', {user : user[0]});
         }).catch((err) => {
             next(err);
         })
@@ -34,7 +34,7 @@ router.post('/profile/edit', (req, res, next) => {
 
     UserModel.findOneAndUpdate({ username }, { imgUrl, aboutMe, username, email, password: hash, age, country, favTeam })
         .then(() => {
-            res.redirect('/profile/profile');
+            res.redirect('/profile');
         }).catch(error => {
             res.render('profile/profile-edit', {error: 'Edit Failed!'});
         })
