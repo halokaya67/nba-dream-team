@@ -17,61 +17,20 @@
                 </button>
             </a>
             <div>
-                <div class="d-flex flex-row my-2">
-                    <img src="" alt="">
-                    <div>
-                        <h5>{{lebronJames.first_name}} {{lebronJames.last_name}}</h4>
-                        <p>
-                            Height:
-                            Team: 
-                            Pos:
-                        </p>
+                {{#each playersArr}}
+                    <div class="d-flex flex-row my-2">
+                        <img src="" alt="">
+                        <div>
+                            <h5 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
+                            <p>
+                                <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
+                                <b>Weight: </b>{{this.weight_pounds}}
+                                <b>Team: </b>{{this.team.full_name}}
+                                <b>Pos: </b>{{this.position}}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex flex-row my-2">
-                    <img src="" alt="">
-                    <div>
-                        <h5>{{kevinDurant.first_name}} {{kevinDurant.last_name}}</h4>
-                        <p>
-                            Height:
-                            Team: 
-                            Pos:
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-row my-2">
-                    <img src="" alt="">
-                    <div>
-                        <h5>{{giannisAntetokounmpo.first_name}} {{giannisAntetokounmpo.last_name}}</h4>
-                        <p>
-                            Height:
-                            Team: 
-                            Pos:
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-row my-2">
-                    <img src="" alt="">
-                    <div>
-                        <h5>{{jamesHarden.first_name}} {{jamesHarden.last_name}}</h4>
-                        <p>
-                            Height:
-                            Team: 
-                            Pos:
-                        </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-row my-2">
-                    <img src="" alt="">
-                    <div>
-                        <h5>{{stephenCurry.first_name}} {{stephenCurry.last_name}}</h4>
-                        <p>
-                            Height:
-                            Team:
-                            Pos:
-                        </p>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
         <div class="col-6" id="info-container">

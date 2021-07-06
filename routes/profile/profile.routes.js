@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const UserModel = require('../../models/User.model');
 const uploader = require('../../config/cloudinary.config');
+const axios = require('axios');
 
 router.get('/profile', (req, res, next) => {
     let username = req.session.loggedInUser.username;

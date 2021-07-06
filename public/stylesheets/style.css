@@ -21,7 +21,7 @@ nav {
 }
 
 #homepage-create {
-    width: 400px;
+    width: 450px;
     background-color: rgba(240, 248, 255, 0.774);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
     margin-right: 50px;
@@ -111,4 +111,27 @@ a.nav-link:hover {
     width: 250px;
     text-shadow: none;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+.player-card {
+    background-color: rgba(240, 248, 255, 0.774);
+}
+
+#myTeam-container {
+    height: 860px;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.myFavPlayers {
+    width: 600px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+#modal {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+.modal-dialog {
+    background-color: rgba(240, 248, 255, 0.774);
 }
