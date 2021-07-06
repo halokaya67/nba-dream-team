@@ -78,7 +78,7 @@ router.post('/logIn', (req, res, next) => {
           req.app.locals.isLoggedIn = true;
           res.redirect('/profile');
         } else {
-          res.render('auth/logIn', { error: 'Invalid password!"}' });
+          res.render('auth/logIn', { error: 'Invalid password!'});
         }
       } else {
         res.render('auth/logIn', { error: 'User not found!' });

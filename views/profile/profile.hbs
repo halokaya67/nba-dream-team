@@ -18,18 +18,42 @@
 </nav>
 
 <div class="container d-flex justify-content-center" id="profile-container">
-    <div class="row align-items-center">
-        <div class="col-8">
+    <div class="row align-items-center w-100">
+        <div class="col-8 d-flex flex-column align-items-center text-light">
+            <div class="">
+                <h2>My Favourite Players</h2>
+                <ul>
+                    {{#each user.favPlayers}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="">
+                <h2>My Teams</h2>
+                <ul>
+                    {{#each user.myTeams}}
+                        <li>{{this.first_name}} {{this.last_name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
             <a href="/profile/teams-edit" class="button">
                 <button class="btn btn-primary fw-bold px-5 py-2 mb-4 text-nowrap">
                     Edit My Team
                 </button>
             </a>
         </div>
-        <div class="col-4">
-            <img src="{{user.imageUrl}}" alt="profile-pic">
+        <div id='myProfile' class="col-4 d-flex flex-column align-items-center">
+            <h1 class="text-nowrap my-5">My Profile</h1>
+            <img id='profilePic' class='mb-4' src="{{user.imageUrl}}" alt="profile-pic">
+            <ul class="text-center text-nowrap p-0" id="profile-bio">
+                <li class="fs-3 fw-bold profile-info text-decoration-underline m-2">{{user.username}}</li>
+                <li class="fs-5 profile-info m-1">Age: {{user.age}}</li>
+                <li class="fs-5 profile-info m-1">{{user.country}}</li>
+                <li class="fs-5 profile-info m-1">{{user.favTeam}}</li>
+                <li class="fs-5 profile-info m-1">{{user.aboutMe}}</li>
+            </ul>
             <a href="/profile/edit" class="button">
-                <button class="btn btn-primary fw-bold px-5 py-2 mb-4 text-nowrap">
+                <button class="btn btn-primary fw-bold px-5 py-2 mb-5 text-nowrap">
                     Edit Profile
                 </button>
             </a>
