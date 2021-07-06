@@ -7,16 +7,13 @@ const axios = require('axios');
 router.get('/profile', (req, res, next) => {
     let username = req.session.loggedInUser.username;
 
-    UserModel.find({ username })
-        .then((user) => {
-            res.render('profile/profile', { user : user[0]});
-        }).catch((err) => {
-            next(err);
-        })
-});
+router.post('/profile', (req,res,next) => {
+    res.req.params('profile/profile-edit')
+})
 
-router.get('/profile/edit', (req, res, next) => {
-    let username = req.session.loggedInUser.username;
+router.post('/profile', (req,res,next) => {
+    res.req.params('profile/teams-edit')
+})
 
     UserModel.find({ username })
         .then((user) => {
