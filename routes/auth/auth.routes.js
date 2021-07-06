@@ -11,12 +11,12 @@ router.get("/signUp", (req, res, next) => {
 // Post sign up 
 
 router.post("/signUp", (req,res,next) => {
-    const {username, email, password} = req.body
+  const {username, email, password} = req.body
 
-    if (!username || !email || !password) {
-      res.render('auth/signUp', {error: 'Please enter all fields'})
-      // To tell JS to come out off this function
-      return;
+  if (!username || !email || !password) {
+    res.render('auth/signUp', {error: 'Please enter all fields'})
+     // To tell JS to come out off this function
+    return;
   }
 
   // Check for email 
