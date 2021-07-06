@@ -17,14 +17,22 @@
     </div>
 </nav>
 
-<a href="/profile/edit" class="text-decoration-none  button">
-    <button class="btn btn-primary fw-bold px-5 py-2 mb-4">
-        Edit Profile
-    </button>
-</a>
-
-<a href="/myTeam/edit" class="text-decoration-none  button">
-    <button class="btn btn-primary fw-bold px-5 py-2 mb-4">
-        Edit My Team
-    </button>
-</a>
+<div class="container d-flex justify-content-center" id="profile-container">
+    <div class="row align-items-center">
+        <div class="col-8">
+            <a href="/profile/teams-edit" class="button">
+                <button class="btn btn-primary fw-bold px-5 py-2 mb-4 text-nowrap">
+                    Edit My Team
+                </button>
+            </a>
+        </div>
+        <div class="col-4">
+            <img src="{{user.imageUrl}}" alt="profile-pic">
+            <a href="/profile/edit" class="button">
+                <button class="btn btn-primary fw-bold px-5 py-2 mb-4 text-nowrap">
+                    Edit Profile
+                </button>
+            </a>
+        </div>
+    </div>
+</div>

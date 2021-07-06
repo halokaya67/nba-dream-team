@@ -1,62 +1,62 @@
 body {
-  padding: 0;
-  margin: 0;
-  background-image: url(../images/background.webp);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+    padding: 0;
+    margin: 0;
+    background-image: url(../images/background.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 nav {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+    
 }
 
 .brand {
-  width: 40px;
+    width: 40px;
 }
 
 .container {
-  height: 800px;
-  padding: 50px;
+    height: 800px;
+    padding: 50px;
 }
 
 #homepage-create {
-  width: 400px;
-  background-color: rgba(240, 248, 255, 0.774);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
-  margin-right: 50px;
+    width: 400px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+    margin-right: 50px;
 }
 
 #info-container {
-  width: 400px;
-  text-shadow: 0px 0px 5px rgb(0, 0, 0);
-  margin-left: 50px;
+    width: 400px;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    margin-left: 50px;
 }
 
 #signup-link {
-  color: #80ffdb;
+    color: #80ffdb;
 }
 
 button {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
 }
 
 a img {
-  width: 50px;
+    width: 50px;
 }
 
 #signup-container {
-  width: 450px;
-  height: 700px;
-  background-color: rgba(240, 248, 255, 0.774);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+    width: 450px;
+    height: 700px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 #login-container {
-  width: 450px;
-  height: 700px;
-  background-color: rgba(240, 248, 255, 0.774);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+    width: 450px;
+    height: 700px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 .error {
@@ -64,19 +64,30 @@ a img {
 }
 
 .error:hover {
-  background-color: #dc3545;
-  cursor: auto;
+    background-color: #dc3545;
+    cursor: auto;
 }
 
 a.nav-link {
-  color: white;
+    color: white;
+}
+
+li {
+    list-style: none;
 }
 
 a.nav-link:hover {
-  color: rgb(175, 175, 175);
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    color: rgb(175, 175, 175);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .nav-user {
   width: 250px;
+}
+
+#edit-profile-container {
+    width: 450px;
+    height: 860px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
