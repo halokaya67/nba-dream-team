@@ -42,7 +42,7 @@
                                     <b>Pos: </b>{{this.position}}
                                 </p>      
                             </div>
-                            <form class="d-flex" action="/profile/remove-player" method="POST">
+                            <form class="d-flex" action="/profile/{{this._id}}/delete-player" method="POST">
                                 <button value="{{this._id}}" class="btn p-0 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
                             </form>
                         </li>

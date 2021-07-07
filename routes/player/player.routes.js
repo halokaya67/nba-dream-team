@@ -33,8 +33,19 @@ router.post('/profile/add-player', (req, res, next) => {
         })
 });
 
-router.post('/profile/:id/add-player', (req, res, next) => {
-    
+router.post('/profile/:id/delete-player', (req, res, next) => {
+    let {username} = req.session.loggedInUser
+    let id = req.params.id;
+
+    PlayerModel.findOneAndRemove(id)
+        .then(() => {
+            UserModel.findOneAndUpdate({ username }, { $pull: { favPlayers: id } })
+                .then(() => {
+                    res.redirect('/profile');
+                })
+        }).catch((err) => {
+            next(err);
+        })
 });
 
 router.post('/profile/list-players', (req, res, next) => {
