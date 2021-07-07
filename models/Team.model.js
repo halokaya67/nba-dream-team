@@ -9,7 +9,7 @@ const teamSchema = new mongoose.Schema({
     players: [{
         ref: 'Player',
         type: mongoose.Schema.Types.ObjectId,
-        maxItems: 5
+        max: 5
     }]
 })
 

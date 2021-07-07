@@ -31,7 +31,6 @@ router.post('/profile/create-team', (req, res, next) => {
         });
 });
 
-//! It's working!!! 
 router.post('/profile/:id/delete-team', (req, res, next) => {
     let { username } = req.session.loggedInUser;
     let id = req.params.id;

@@ -71,6 +71,7 @@ router.post('/profile/:id/delete-player', (req, res, next) => {
 
 router.get('/profile/:id/add-team-player', (req, res, next) => {
     let id = req.params.id;
+    console.log(id)
 
     TeamModel.findById(id)
         .then((team) => {
@@ -84,7 +85,6 @@ router.post('/profile/:id/add-team-player', (req, res, next) => {
     const playerId = req.body.player;
     const { username } = req.session.loggedInUser;
     let id = req.params.id;
-    console.log(id)
     
     let player = getPlayerById(playerId);
 
@@ -95,8 +95,8 @@ router.post('/profile/:id/add-team-player', (req, res, next) => {
             PlayerModel.create({ first_name, last_name, height_feet, height_inches, position, weight_pounds, team_name: full_name })
                 .then((createdPlayer) => {
                     TeamModel.findByIdAndUpdate((id), {$push: {players: createdPlayer}})
-                        .then(() => {
-                            res.redirect('/profile');
+                        .then((team) => {
+                            res.redirect(`/profile/${team._id}`);
                         })
                 })
         }).catch((err) => {
