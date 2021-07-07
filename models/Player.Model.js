@@ -9,7 +9,6 @@ const playerSchema = new mongoose.Schema({
     height_inches: Number,
     weight_pounds: Number,
     position: String,
-    favPlayer: Boolean
 })
 
 const PlayerModel = mongoose.model("Player", playerSchema);

@@ -48,11 +48,13 @@ router.post('/profile/:id/delete-team', (req, res, next) => {
 });
 
 router.get('/profile/:id', (req, res, next) => {
+    const {username} = req.session.loggedInUser;
     let id = req.params.id;
 
     TeamModel.findById(id)
+        .populate('players')
         .then((team) => {
-            res.render('team/team', {team})
+            res.render('team/team', { team, username })
         }).catch((err) => {
             next(err);
         });
@@ -64,7 +66,7 @@ router.get('/profile/:id/edit-team', (req, res, next) => {
 
     TeamModel.findById(id)
         .then((team) => {
-            res.render('team/edit-team', {team})
+            res.render('team/edit-team', { team, username });
         }).catch((error) => {
             res.redirect('/profile', { error: 'Team not  found!' });
         })

@@ -70,12 +70,13 @@ router.post('/profile/:id/delete-player', (req, res, next) => {
 });
 
 router.get('/profile/:id/add-team-player', (req, res, next) => {
+    const {username} = req.session.loggedInUser;
     let id = req.params.id;
     console.log(id)
 
     TeamModel.findById(id)
         .then((team) => {
-            res.render('player/add-team-player', { team });
+            res.render('player/add-team-player', { team, username });
         }).catch((err) => {
             next(err);
         })
@@ -96,12 +97,27 @@ router.post('/profile/:id/add-team-player', (req, res, next) => {
                 .then((createdPlayer) => {
                     TeamModel.findByIdAndUpdate((id), {$push: {players: createdPlayer}})
                         .then((team) => {
-                            res.redirect(`/profile/${team._id}`);
+                            res.redirect(`/profile/${team._id}`,);
                         })
                 })
         }).catch((err) => {
             next(err);
         })
+});
+
+router.post('/profile/:id/:playerId/delete-team-player', (req, res, next) => {
+    let id = req.params.id;
+    let playerId = req.params.playerId;
+
+    PlayerModel.findByIdAndDelete(playerId)
+        .then(() => {
+            TeamModel.findByIdAndUpdate((id) , { $pull: { players: playerId } })
+                .then(() => {
+                    res.redirect(`/profile/${id}`);
+                })
+        }).catch((err) => {
+            next(err);
+        });
 });
 
 router.post('/profile/:id/list-players', (req, res, next) => {

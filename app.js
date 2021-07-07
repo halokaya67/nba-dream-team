@@ -52,11 +52,13 @@ app.use("/", authRoutes);
 const profileRoutes = require('./routes/profile/profile.routes');
 app.use("/", profileRoutes);
 
+const playerRoutes = require('./routes/player/player.routes');
+app.use("/", playerRoutes);
+
 const teamRoutes = require('./routes/team/team.routes');
 app.use("/", teamRoutes);
 
-const playerRoutes = require('./routes/player/player.routes');
-app.use("/", playerRoutes);
+
 
 
 

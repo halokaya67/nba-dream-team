@@ -29,24 +29,21 @@
             <button class="btn btn-outline-primary fw-bold text-center" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
-    <div id="players-container" class="d-flex flex-column align-items-center text-light overflow-auto my-3">
-        <div>
-            {{#each playersArr}}
-                <form action="/profile/add-player" method="POST">
-                    <button type="submit" name="player" value="{{this.id}}" class="btn d-flex flex-row justify-content-center my-2 player-card">
-                        <img src="" alt="">
-                        <div>
-                            <h5 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
-                            <p class="text-wrap player-info m-0">
-                                <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
-                                <b>Weight: </b>{{this.weight_pounds}}
-                                <b>Team: </b>{{this.team.full_name}}
-                                <b>Pos: </b>{{this.position}}
-                            </p>
-                        </div>
-                    </button>
-                </form>
-            {{/each}}
-        </div>
+    <div id="players-container" class="text-light overflow-auto my-3">
+        {{#each playersArr}}
+            <form action="/profile/add-player" method="POST">
+                <button type="submit" name="player" value="{{this.id}}" class="btn d-flex flex-row justify-content-center my-2 w-100 player-card">
+                    <div class="m-2">
+                        <h4 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
+                        <p class="text-wrap player-info">
+                            <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
+                            <b>Weight: </b>{{this.weight_pounds}}
+                            <b>Team: </b>{{this.team.full_name}}
+                            <b>Pos: </b>{{this.position}}
+                        </p>
+                    </div>
+                </button>
+            </form>
+        {{/each}}
     </div>
 </div>

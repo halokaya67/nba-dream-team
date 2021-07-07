@@ -38,6 +38,10 @@ button {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
 }
 
+form img {
+    width: 50px;
+}
+
 a img {
     width: 50px;
 }
@@ -91,7 +95,6 @@ a.nav-link:hover {
 
 #profile-container {
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
-    height: 800px;
 }
 
 #profilePic {
@@ -118,6 +121,10 @@ a.nav-link:hover {
     border-radius: 100px;
 }
 
+.player-card p {
+    font-size: 18px;
+}
+
 .add-card {
     background-color: rgba(240, 248, 255, 0.774);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
@@ -128,10 +135,6 @@ a.nav-link:hover {
 #addPlayer-container {
     height: 860px;
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
-}
-
-.myFavPlayers {
-    width: 500px;
 }
 
 #search-form {
@@ -145,10 +148,6 @@ a.nav-link:hover {
 
 #players-container {
     height: 600px;
-}
-
-.player-info {
-    width: 450px;
 }
 
 #create-team-container {
@@ -200,4 +199,8 @@ a.nav-link:hover {
 #team-players-container {
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
     height: 800px;
+}
+
+.scrollable-container {
+    height: 320px;
 }
