@@ -35,9 +35,9 @@ router.post('/profile/add-player', (req, res, next) => {
 
 router.post('/profile/:id/delete-player', (req, res, next) => {
     let {username} = req.session.loggedInUser
-    let id = req.params.id;
-
-    PlayerModel.findOneAndRemove(id)
+    let id = req.params.id
+        
+    PlayerModel.findByIdAndDelete(id)
         .then(() => {
             UserModel.findOneAndUpdate({ username }, { $pull: { favPlayers: id } })
                 .then(() => {

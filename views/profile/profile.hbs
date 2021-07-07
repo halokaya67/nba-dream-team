@@ -62,9 +62,9 @@
                     </li>
                     {{#each myTeams}}
                         <li class="d-flex justify-content-between my-2 player-card text-dark text-center w-100">
-                            <form class="d-flex" action="/profile/{{this._id}}/edit-team" method="POST">
+                            <a class="d-flex text-decoration-none" href="/profile/{{this._id}}/edit-team">
                                 <button class="btn p-0 mx-3 edit-button d-flex align-items-center bi bi-pencil-square fs-3"></button>
-                            </form>
+                            </a>
                             <div class="m-2">
                                 <h3 class="fw-bold text-decoration-underline">{{this.name}}</h3>
                                 <p class="m-0">

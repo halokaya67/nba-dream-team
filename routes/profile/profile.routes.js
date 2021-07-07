@@ -12,7 +12,6 @@ router.get('/profile', (req, res, next) => {
     UserModel.find({ username })
         .populate('myTeams')
         .populate('favPlayers')
-        // .populate('players.player')
         .then((user) => {
             res.render('profile/profile', {user: user[0], favPlayers: user[0].favPlayers, myTeams: user[0].myTeams});
         }).catch((err) => {

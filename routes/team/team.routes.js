@@ -33,18 +33,19 @@ router.post('/profile/create-team', (req, res, next) => {
 
 router.get('/profile/:id/edit-team', (req, res, next) => {
     let {username} = req.session.loggedInUser;
-    let id = req.params.id
+    let id = req.params._id
 
     TeamModel.findOne(id)
         .then((team) => {
-            res.render(`profile/edit-team`, {team})
+            console.log(team);
+            res.render('team/edit-team', {team})
         }).catch((error) => {
-            res.redirect('/profile', { error: 'User not  found!' });
+            res.redirect('/profile', { error: 'Team not  found!' });
         })
 });
 
-router.post('/profile/:id/edit-team', (req, res, next) => {
-    let id = req.params.id;
+router.post('/profile/:id/delete-team', (req, res, next) => {
+    let id = req.params._id;
 
 });
 
