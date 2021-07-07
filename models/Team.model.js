@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const teamSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -9,7 +8,8 @@ const teamSchema = new mongoose.Schema({
     imageUrl: String,
     players: [{
         ref: 'Player',
-        type: mongoose.Schema.Types.ObjectId    
+        type: mongoose.Schema.Types.ObjectId,
+        maxItems: 5
     }]
 })
 

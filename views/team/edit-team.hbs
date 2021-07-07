@@ -22,9 +22,9 @@
 </a>
 
 <div class="container d-flex align-items-center justify-content-center">
-    <div class="container d-flex flex-column justify-content-center text-center" id="create-team-container">
+    <div class="container d-flex flex-column justify-content-center text-center" id="edit-team-container">
         <h1 class="mb-4">Edit Your Team</h1>
-        <form method="POST" action="/upload/team-logo" enctype="multipart/form-data">
+        <form method="POST" action="/upload/{{team._id}}/team-logo" enctype="multipart/form-data">
             <label class="form-label fs-5">
                     Team Logo
             </label>
@@ -33,12 +33,12 @@
                 <button type="submit" class="btn btn-primary fw-bold px-3">Submit</button>
             </div>
         </form>  
-        <form class="d-flex flex-column" action="/profile/create-team" method="POST">
+        <form class="d-flex flex-column" action="/profile/{{team._id}}/edit-team" method="POST">
             <div class="mb-3">
                 <label class="form-label fs-5">
                     Team Name
                 </label>
-                <input placeholder="Write Your Team Name" name="team_name" type="text" class="form-control"/>
+                <input placeholder="Write Your Team Name" value="{{team.name}}" name="name" type="text" class="form-control"/>
             </div>
             <div class="justify-content-center">
                 <button type="submit" class="btn btn-primary fw-bold px-5">Submit</button>

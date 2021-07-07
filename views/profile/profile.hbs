@@ -65,13 +65,19 @@
                             <a class="d-flex text-decoration-none" href="/profile/{{this._id}}/edit-team">
                                 <button class="btn p-0 mx-3 edit-button d-flex align-items-center bi bi-pencil-square fs-3"></button>
                             </a>
-                            <div class="m-2">
-                                <h3 class="fw-bold text-decoration-underline">{{this.name}}</h3>
-                                <p class="m-0">
-                                    <b>Players Count: </b>{{this.players.length}}
-                                </p>
+                            <div class="m-1 d-flex flex-row justify-content-center">
+                                <img class="mx-2" id="teamLogo" src="{{this.imageUrl}}" alt="team-logo" />
+                                <div class="mx-2">
+                                    <h3 class="fw-bold text-decoration-underline">{{this.name}}</h3>
+                                    <p class="m-0">
+                                        <b>Players Count: </b>{{this.players.length}}
+                                    </p>
+                                </div>
+                                <a class="d-flex text-decoration-none" href="/profile/{{this.id}}">
+                                    <button class="btn p-0 mx-3 go-button d-flex align-items-center bi bi-box-arrow-right fs-3"></button>
+                                </a>
                             </div>
-                            <form class="d-flex" action="/profile/{{this._id}}/delete" method="POST">
+                            <form class="d-flex" action="/profile/{{this.id}}/delete-team" method="POST">
                                 <button class="btn p-0 mx-3 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
                             </form>
                         </li>

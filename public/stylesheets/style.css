@@ -79,7 +79,7 @@ a.nav-link:hover {
 }
 
 .nav-user {
-  width: 250px;
+    width: 250px;
 }
 
 #edit-profile-container {
@@ -158,12 +158,46 @@ a.nav-link:hover {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
+#edit-team-container {
+    width: 450px;
+    height: 400px;
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
 .edit-button {
     color: #ffb703;
+    box-shadow: none;
+}
+
+.edit-button:focus {
     box-shadow: none;
 }
 
 .delete-button {
     color: #d00000;
     box-shadow: none;
+}
+
+.delete-button:focus {
+    box-shadow: none;
+}
+
+#teamLogo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+}
+
+.go-button {
+    box-shadow: none;
+}
+
+.go-button:focus {
+    box-shadow: none;
+}
+
+#team-players-container {
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    height: 800px;
 }

@@ -33,21 +33,6 @@ router.post('/profile/add-player', (req, res, next) => {
         })
 });
 
-router.post('/profile/:id/delete-player', (req, res, next) => {
-    let {username} = req.session.loggedInUser
-    let id = req.params.id
-        
-    PlayerModel.findByIdAndDelete(id)
-        .then(() => {
-            UserModel.findOneAndUpdate({ username }, { $pull: { favPlayers: id } })
-                .then(() => {
-                    res.redirect('/profile');
-                })
-        }).catch((err) => {
-            next(err);
-        })
-});
-
 router.post('/profile/list-players', (req, res, next) => {
     let {username} = req.session.loggedInUser
     const { search } = req.body;
@@ -64,6 +49,81 @@ router.post('/profile/list-players', (req, res, next) => {
                 playersArr =  obj.data.data;
             });
             res.render('player/add-player', {playersArr, username})
+        }).catch((err) => {
+            next(err);
+        })
+});
+
+router.post('/profile/:id/delete-player', (req, res, next) => {
+    let {username} = req.session.loggedInUser
+    let id = req.params.id
+        
+    PlayerModel.findByIdAndDelete(id)
+        .then(() => {
+            UserModel.findOneAndUpdate({ username }, { $pull: { favPlayers: id } })
+                .then(() => {
+                    res.redirect('/profile');
+                })
+        }).catch((err) => {
+            next(err);
+        })
+});
+
+router.get('/profile/:id/add-team-player', (req, res, next) => {
+    let id = req.params.id;
+
+    TeamModel.findById(id)
+        .then((team) => {
+            res.render('player/add-team-player', { team });
+        }).catch((err) => {
+            next(err);
+        })
+});
+
+router.post('/profile/:id/add-team-player', (req, res, next) => {
+    const playerId = req.body.player;
+    const { username } = req.session.loggedInUser;
+    let id = req.params.id;
+    console.log(id)
+    
+    let player = getPlayerById(playerId);
+
+    Promise.resolve(player)
+        .then((player) => {
+            const { first_name, last_name, height_feet, height_inches, position, weight_pounds } = player.data;
+            const { full_name } = player.data.team;
+            PlayerModel.create({ first_name, last_name, height_feet, height_inches, position, weight_pounds, team_name: full_name })
+                .then((createdPlayer) => {
+                    TeamModel.findByIdAndUpdate((id), {$push: {players: createdPlayer}})
+                        .then(() => {
+                            res.redirect('/profile');
+                        })
+                })
+        }).catch((err) => {
+            next(err);
+        })
+});
+
+router.post('/profile/:id/list-players', (req, res, next) => {
+    let {username} = req.session.loggedInUser
+    const { search } = req.body;
+    let name = String(search).replace(/ /g, "_");
+    let id = req.params.id;
+    
+    let playersArr;
+    let players = [];
+
+    players.push(getPlayersByFullName(name));
+
+    Promise.all(players)
+        .then((players) => {
+            players.forEach((obj) => {
+                playersArr =  obj.data.data;
+            });
+            TeamModel.findById(id)
+                .then((team) => {
+                    res.render(`player/add-team-player`, {team, playersArr, username})  
+                })
         }).catch((err) => {
             next(err);
         })

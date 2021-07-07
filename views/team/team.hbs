@@ -1,0 +1,58 @@
+<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid justify-content-between">
+        <a href="/profile" class="navbar-brand p-2 fs-4">
+            <img class="brand me-1" src="/images/favicon.png" alt="brand" />
+            NBA Dream Team
+        </a>
+        <ul class="d-flex flex-row mx-0 m-auto">
+            {{#if isLoggedIn}}
+                <li class="nav-item d-flex align-items-center justify-content-end nav-user">
+                    <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{user.username}}!</a></p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/logOut">Log Out</a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<a class="position-absolute p-3" href="/profile">
+    <img src="/images/back.png" alt="back-button" />
+</a>
+
+<div class="container d-flex justify-content-center" id="team-players-container">
+    <div class="row align-items-center w-100">
+        <div class="d-flex flex-column align-items-center text-light">
+            <div class="">
+                <h1 class="text-center m-3">{{team.name}} Players</h1>
+                <ul class="p-0 overflow-auto">
+                    <li class="d-flex justify-content-center my-2 add-card myFavPlayers">
+                        <a class="p-2" href="/profile/{{team._id}}/add-team-player">
+                            <button class="btn">
+                                <img src="/images/add.png" alt="add-button" />
+                            </button>
+                        </a>
+                        <h3 class="d-flex align-items-center text-dark">Add a New Player</h3>
+                    </li>
+                    {{#each team.players}}
+                        <li class="d-flex justify-content-center my-2 text-dark player-card text-center">
+                            <div class="m-2">
+                                <h4 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
+                                <p class="m-0">
+                                    <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
+                                    <b>Weight: </b>{{this.weight_pounds}}
+                                    <b>Team: </b>{{this.team_name}}
+                                    <b>Pos: </b>{{this.position}}
+                                </p>      
+                            </div>
+                            <form class="d-flex" action="/profile/{{this._id}}/delete-player" method="POST">
+                                <button value="{{this._id}}" class="btn p-0 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
+                            </form>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

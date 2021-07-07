@@ -1,0 +1,20 @@
+const id = req.body.player
+    let {username} = req.session.loggedInUser
+    
+    let picked;
+    let player = getPlayerById(id);
+
+    Promise.resolve(player)
+        .then((player) => {
+            const { first_name, last_name, height_feet, height_inches, position, weight_pounds } = player.data;
+            const { full_name } = player.data.team;
+            PlayerModel.create({ first_name, last_name, height_feet, height_inches, position, weight_pounds, team_name: full_name })
+                .then((createdPlayer) => {
+                    UserModel.findOneAndUpdate({ username }, {$push: {favPlayers: createdPlayer}})
+                        .then(() => {
+                            res.redirect('/profile');
+                        })
+                })
+        }).catch((err) => {
+            next(err);
+        })
