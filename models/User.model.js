@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema({
     aboutMe: String,
     favTeam: String,
     favPlayers: [{
-        ref: 'player',
+        ref: 'Player',
         type: mongoose.Schema.Types.ObjectId
     }],
     myTeams: [{
-        ref: 'team',
+        ref: 'Team',
         type: mongoose.Schema.Types.ObjectId
     }]
 });

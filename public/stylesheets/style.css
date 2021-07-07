@@ -1,4 +1,5 @@
 body {
+    overflow: hidden;
     padding: 0;
     margin: 0;
     background-image: url(../images/background.webp);
@@ -90,6 +91,7 @@ a.nav-link:hover {
 
 #profile-container {
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    height: 800px;
 }
 
 #profilePic {
@@ -111,23 +113,57 @@ a.nav-link:hover {
 
 .player-card {
     background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+    text-shadow: none;
+    border-radius: 100px;
 }
 
-#myTeam-container {
+.add-card {
+    background-color: rgba(240, 248, 255, 0.774);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+    text-shadow: none;
+    border-radius: 100px;
+}
+
+#addPlayer-container {
     height: 860px;
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
 .myFavPlayers {
-    width: 600px;
+    width: 500px;
+}
+
+#search-form {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+    border-color: #212529;
+}
+
+#button-addon2 {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+}
+
+#players-container {
+    height: 600px;
+}
+
+.player-info {
+    width: 450px;
+}
+
+#create-team-container {
+    width: 450px;
+    height: 300px;
     background-color: rgba(240, 248, 255, 0.774);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
-#modal {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+.edit-button {
+    color: #ffb703;
+    box-shadow: none;
 }
 
-.modal-dialog {
-    background-color: rgba(240, 248, 255, 0.774);
+.delete-button {
+    color: #d00000;
+    box-shadow: none;
 }

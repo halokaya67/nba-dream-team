@@ -21,48 +21,63 @@
     <div class="row align-items-center w-100">
         <div class="col-8 d-flex flex-column align-items-center text-light">
             <div class="">
-                <h2>My Favourite Players</h2>
-                <ul>
-                    {{#each favPlayersArr}}
-                        <li class="d-flex flex-row my-2 player-card">
-                            <img src="" alt="">
-                            <div>
-                                <h5 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
-                                <p>
+                <h1 class="text-center m-3">My Favourite Players</h1>
+                <ul class="p-0 overflow-auto myTeams-list">
+                    <li class="d-flex justify-content-center my-2 add-card myFavPlayers">
+                        <a class="p-2" href="/profile/add-player">
+                            <button class="btn">
+                                <img src="/images/add.png" alt="add-button" />
+                            </button>
+                        </a>
+                        <h3 class="d-flex align-items-center text-dark">Add a New Player</h3>
+                    </li>
+                    {{#each favPlayers}}
+                        <li class="d-flex justify-content-center my-2 text-dark player-card text-center">
+                            <div class="m-2">
+                                <h4 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
+                                <p class="m-0">
                                     <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
                                     <b>Weight: </b>{{this.weight_pounds}}
-                                    <b>Team: </b>{{this.team.full_name}}
+                                    <b>Team: </b>{{this.team_name}}
                                     <b>Pos: </b>{{this.position}}
-                                </p>
+                                </p>      
                             </div>
+                            <form class="d-flex" action="/profile/remove-player" method="POST">
+                                <button value="{{this._id}}" class="btn p-0 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
+                            </form>
                         </li>
                     {{/each}}
                 </ul>
             </div>
             <div class="">
-                <h2>My Teams</h2>
-                <ul>
-                    {{#each myTeamPlayersArr}}
-                        <li class="d-flex flex-row my-2 player-card">
-                            <img src="" alt="">
-                            <div>
-                                <h5 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
-                                <p>
-                                    <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
-                                    <b>Weight: </b>{{this.weight_pounds}}
-                                    <b>Team: </b>{{this.team.full_name}}
-                                    <b>Pos: </b>{{this.position}}
+                <h1 class="text-center m-3">My Teams</h1>
+                <ul class="p-0 overflow-auto myTeams-list">
+                    <li class="d-flex justify-content-center my-2 add-card myFavPlayers">
+                        <a class="p-2" href="/profile/create-team">
+                            <button class="btn">
+                                <img src="/images/add.png" alt="add-button"/>
+                            </button>
+                        </a>
+                        <h3 class="d-flex align-items-center text-dark">Add a New Team</h3>
+                    </li>
+                    {{#each myTeams}}
+                        <li class="d-flex justify-content-between my-2 player-card text-dark text-center w-100">
+                            <form class="d-flex" action="/profile/{{this._id}}/edit-team" method="POST">
+                                <button class="btn p-0 mx-3 edit-button d-flex align-items-center bi bi-pencil-square fs-3"></button>
+                            </form>
+                            <div class="m-2">
+                                <h3 class="fw-bold text-decoration-underline">{{this.name}}</h3>
+                                <p class="m-0">
+                                    <b>Players Count: </b>{{this.players.length}}
                                 </p>
                             </div>
+                            <form class="d-flex" action="/profile/{{this._id}}/delete" method="POST">
+                                <button class="btn p-0 mx-3 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
+                            </form>
                         </li>
                     {{/each}}
                 </ul>
             </div>
-            <a href="/profile/teams-edit" class="button">
-                <button class="btn btn-primary fw-bold px-5 py-2 mb-4 text-nowrap">
-                    Edit My Team
-                </button>
-            </a>
         </div>
         <div id='myProfile' class="col-4 d-flex flex-column align-items-center">
             <h1 class="text-nowrap my-5">My Profile</h1>

@@ -2,27 +2,14 @@ const mongoose = require("mongoose");
 
 
 const playerSchema = new mongoose.Schema({
-    firstName:{
-        type: String
-    },
-    lastName:{
-        type: String
-    },
-    team:{
-        type: String
-    },
-    age:{
-        type: Number
-    },
-    height: {
-        type: Number
-    },
-    weight:{
-        type: Number
-    },
-    position:{
-        type: String
-    }
+    first_name: String,
+    last_name: String,
+    team_name: String,
+    height_feet: Number,
+    height_inches: Number,
+    weight_pounds: Number,
+    position: String,
+    favPlayer: Boolean
 })
 
 const PlayerModel = mongoose.model("Player", playerSchema);

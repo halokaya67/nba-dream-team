@@ -6,13 +6,13 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    players: {
-        type: Array,
-        ref: 'players',
-        type: Mongoose.Schema.Types.ObjectId    
-    }
+    imageUrl: String,
+    players: [{
+        ref: 'Player',
+        type: mongoose.Schema.Types.ObjectId    
+    }]
 })
 
-const TeamModel = mongoose.model("Team", userSchema);
+const TeamModel = mongoose.model("Team", teamSchema);
 module.exports = TeamModel
 
