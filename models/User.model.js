@@ -16,7 +16,10 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     age: Number,
-    imageUrl: String,
+    imageUrl: {
+        type: String,
+        default: '/images/profile-default.png'
+    },
     country: String,
     aboutMe: String,
     favTeam: String,

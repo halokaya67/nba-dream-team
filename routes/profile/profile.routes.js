@@ -32,9 +32,16 @@ router.get('/profile/edit', (req, res, next) => {
 
 router.post('/profile/edit', (req, res, next) => {
     const { aboutMe, username, email, password, age, country, favTeam } = req.body;
+    let id = req.session.loggedInUser._id;
 
-    if (!aboutMe || !username || !email || !password || !age || !country || !favTeam) {
-        res.render('profile/edit-profile', {error: 'Please enter all fields'})
+    if (!username || !email || !password) {
+        UserModel.findById(id)
+            .then((user) => {
+                res.render('profile/edit-profile', {error: 'Please enter required fields', user})
+            }).catch((err) => {
+                next(err);
+            });
+        
         // To tell JS to come out off this function
         return;
     }

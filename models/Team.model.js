@@ -3,13 +3,16 @@ const mongoose = require("mongoose");
 const teamSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 20
     },
-    imageUrl: String,
+    imageUrl: {
+        type: String,
+        default: '/images/team-default.png'
+    },
     players: [{
         ref: 'Player',
-        type: mongoose.Schema.Types.ObjectId,
-        max: 5
+        type: mongoose.Schema.Types.ObjectId
     }]
 })
 

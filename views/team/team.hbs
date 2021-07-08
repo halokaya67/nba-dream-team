@@ -24,8 +24,8 @@
 <div class="container d-flex justify-content-center" id="team-players-container">
     <div class="row align-items-center">
         <div class="d-flex flex-column align-items-center text-light">
-            <h1 class="display-1 text-center m-1">{{team.name}} Players</h1>
-            <div class="px-0 overflow-auto">
+            <h1 class="display-1 text-center m-3">{{team.name}} Players</h1>
+            <div class="px-2 overflow-auto" id="scroll-container">
                 <form action="/profile/{{team._id}}/add-team-player" method="GET" class="my-2 py-2 add-card">
                     <button id="add-team-player" class="btn m-auto add-button shadow-none d-flex align-items-center">
                         <img class="mx-3" src="/images/add.png" alt="add-button"/>
@@ -33,7 +33,7 @@
                     </button>
                 </form>
                 {{#each team.players}}
-                    <div class="d-flex px-3 text-dark player-card text-center m-auto my-2">
+                    <div class="d-flex justify-content-between px-3 text-dark player-card text-center m-auto my-2">
                         <div class="m-2">
                             <h4 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
                             <p class="m-0">

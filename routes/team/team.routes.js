@@ -20,19 +20,21 @@ router.post('/profile/create-team', (req, res, next) => {
 
     // make sure all fields entered
     if (!name) {
-        res.render('team/create-team', {error: 'Please enter all fields'}) 
+        res.render('team/create-team', {error: 'Please enter all fields!'}) 
         return;
+    } else if (name.length >= 20) {
+        res.render('team/create-team', {error: 'Name can be max 20 characters!'}) 
+    } else {
+        TeamModel.create({ name })
+            .then((team) => {
+                UserModel.findOneAndUpdate({ username }, { $push: { myTeams: team }})
+                    .then(() => {
+                        res.redirect('/profile');
+                    })
+            }).catch((err) => {
+                next(err)
+            });
     }
-    
-    TeamModel.create({ name })
-        .then((team) => {
-            UserModel.findOneAndUpdate({ username }, { $push: { myTeams: team }})
-                .then(() => {
-                    res.redirect('/profile');
-                })
-        }).catch((err) => {
-            next(err)
-        });
 });
 
 // Dynamic route for deleting teams

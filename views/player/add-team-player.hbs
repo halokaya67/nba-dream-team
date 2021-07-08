@@ -29,6 +29,13 @@
             <button class="btn btn-outline-primary fw-bold text-center" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
+    <div class="mt-2">
+        {{#if error}}
+            <p class="error btn btn-danger fw-bold px-3 text-uppercase">
+                {{error}}!
+            </p>
+        {{/if}}
+    </div>
     <div id="players-container" class="text-light overflow-auto">
         {{#each playersArr}}
             <form action="/profile/{{../team._id}}/add-team-player" method="POST" class="m-2">
