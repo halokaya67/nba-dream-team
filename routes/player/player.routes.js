@@ -1,23 +1,31 @@
 const router = require('express').Router();
+
+// Model imports
 const UserModel = require('../../models/User.model');
 const PlayerModel = require('../../models/Player.model');
 const TeamModel = require('../../models/Team.model')
+
 const uploader = require('../../config/cloudinary.config');
 const { getPlayerByFullName, getPlayersByFullName, getPlayerById } = require("../../middlewares/middleware");
 
+// Fav player render
 router.get('/profile/add-player', (req, res, next) => {
-    let {username} = req.session.loggedInUser
+    // validating username
+    let {username} = req.session.loggedInUser    
+    // rendering welcome back message
     res.render('player/add-player', {username});
 })
+
 
 router.post('/profile/add-player', (req, res, next) => {
     const id = req.body.player
     let {username} = req.session.loggedInUser
-    
+    // API call for player
     let picked;
     let player = getPlayerById(id);
 
     Promise.resolve(player)
+    // fetch data from api and push into Playermodel
         .then((player) => {
             const { first_name, last_name, height_feet, height_inches, position, weight_pounds } = player.data;
             const { full_name } = player.data.team;
@@ -34,17 +42,23 @@ router.post('/profile/add-player', (req, res, next) => {
 });
 
 router.post('/profile/list-players', (req, res, next) => {
+    // Search player feature
     let {username} = req.session.loggedInUser
     const { search } = req.body;
+
+    // replace underscore for space in api data when string is input in search bar
     let name = String(search).replace(/ /g, "_");
     
     let playersArr;
     let players = [];
 
+    // pushing player into players array
     players.push(getPlayersByFullName(name));
 
     Promise.all(players)
+    // fetching response response from API)
         .then((players) => {
+            // grabbing data inside playersArr
             players.forEach((obj) => {
                 playersArr =  obj.data.data;
             });
@@ -54,6 +68,7 @@ router.post('/profile/list-players', (req, res, next) => {
         })
 });
 
+// Deleting players from fav list
 router.post('/profile/:id/delete-player', (req, res, next) => {
     let {username} = req.session.loggedInUser
     let id = req.params.id
@@ -68,7 +83,7 @@ router.post('/profile/:id/delete-player', (req, res, next) => {
             next(err);
         })
 });
-
+// rendering add team player view
 router.get('/profile/:id/add-team-player', (req, res, next) => {
     const {username} = req.session.loggedInUser;
     let id = req.params.id;
@@ -82,6 +97,7 @@ router.get('/profile/:id/add-team-player', (req, res, next) => {
         })
 });
 
+// Inserting player to team
 router.post('/profile/:id/add-team-player', (req, res, next) => {
     const playerId = req.body.player;
     const { username } = req.session.loggedInUser;
@@ -105,6 +121,7 @@ router.post('/profile/:id/add-team-player', (req, res, next) => {
         })
 });
 
+// Deleting player from Team Model
 router.post('/profile/:id/:playerId/delete-team-player', (req, res, next) => {
     let id = req.params.id;
     let playerId = req.params.playerId;
@@ -120,6 +137,7 @@ router.post('/profile/:id/:playerId/delete-team-player', (req, res, next) => {
         });
 });
 
+// Listing players in the teams
 router.post('/profile/:id/list-players', (req, res, next) => {
     let {username} = req.session.loggedInUser
     const { search } = req.body;

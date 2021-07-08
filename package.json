@@ -21,7 +21,8 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "share-buttons": "^1.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
