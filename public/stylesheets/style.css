@@ -192,9 +192,13 @@ a.nav-link:hover {
 
 #team-players-container {
     text-shadow: 0px 0px 5px rgb(0, 0, 0);
-    height: 800px;
+    height: 600px;
 }
 
 .scrollable-container {
     height: 320px;
+}
+
+#add-team-player {
+    padding: 0 125px;
 }

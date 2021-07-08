@@ -22,7 +22,7 @@
 </a>
 
 <div class="d-flex flex-column justify-content-center align-items-center" id="addPlayer-container">
-    <h1 class=""></h1>
+    <h1 class="display-2 text-light m-5">Add a Team Player</h1>
     <form class="w-50" action="/profile/{{team._id}}/list-players" method="POST">
         <div class="input-group input-group-lg mb-4">
             <input name='search' type="text" class="form-control py-3 text-center text-light bg-dark" id="search-form" placeholder="Search the player's name" aria-describedby="button-addon2">
@@ -34,13 +34,13 @@
             <form action="/profile/{{../team._id}}/add-team-player" method="POST" class="m-2">
                 <button type="submit" name="player" value="{{this.id}}" class="btn d-flex flex-row justify-content-center w-100 player-card">
                     <div>
-                        <h5 class="fw-bold text-decoration-underline mx-3">{{this.first_name}} {{this.last_name}}</h4>
-                        <p class="text-wrap mx-3">
+                        <h4 class="fw-bold text-decoration-underline mx-3">{{this.first_name}} {{this.last_name}}</h4>
+                        <p class="text-wrap m-0">
                             <span>
                                 <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
                             </span>
                             <span>
-                                <b>Weight: </b>{{this.weight_pounds}}
+                                <b>Weight: </b>{{this.weight_pounds}} lb
                             </span>
                             <span>
                                 <b>Team: </b>{{this.team.full_name}}

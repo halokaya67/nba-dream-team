@@ -21,7 +21,7 @@
     <img src="/images/back.png" alt="back-button"/>
 </a>
 
-<div class="mt-2">
+<div class="mt-2 overflow-auto">
     <div class="container d-flex flex-column justify-content-center text-center px-4 py-4" id="edit-profile-container">
         <h1 class="mb-2">Edit Your Profile</h1>
         <form method="POST" action="/upload" enctype="multipart/form-data">
@@ -79,16 +79,16 @@
                 <textarea placeholder="Tell Us About Yourself" class="form-control" id="exampleFormControlTextarea1" name="aboutMe" rows="3">{{user.aboutMe}}</textarea>
             </div>
             <div class="d-flex flex-row justify-content-around mt-3">
-                <div class="d-flex justify-content-center">
-                    <form action="/profile/delete" method="POST">
-                        <button class="btn btn-danger fw-bold px-4" type="submit">Delete Profile</button>
-                    </form>
-                </div>
                 <div class="justify-content-center">
                     <button type="submit" class="btn btn-primary fw-bold px-5">Submit</button>
                 </div>
             </div>
         </form>
+        <div class="d-flex justify-content-center mt-2">
+            <form action="/profile/delete" method="POST">
+                <button class="btn btn-danger fw-bold px-4" type="submit">Delete Profile</button>
+            </form>
+        </div>
         <div class="mt-2">
             {{#if error}}
                 <p class="error btn btn-danger fw-bold px-3 text-uppercase">

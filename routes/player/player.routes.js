@@ -48,7 +48,7 @@ router.post('/profile/list-players', (req, res, next) => {
             players.forEach((obj) => {
                 playersArr =  obj.data.data;
             });
-            res.render('player/add-player', {playersArr, username})
+            res.render('player/add-player', {playersArr, username, })
         }).catch((err) => {
             next(err);
         })
