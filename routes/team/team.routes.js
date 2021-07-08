@@ -32,7 +32,7 @@ router.post('/profile/create-team', (req, res, next) => {
                         res.redirect('/profile');
                     })
             }).catch((err) => {
-                next(err)
+                res.render('team/create-team', {error: 'Team create failed!',username});
             });
     }
 });
@@ -43,14 +43,32 @@ router.post('/profile/:id/delete-team', (req, res, next) => {
     let id = req.params.id;
     const { name } = req.body;
 
-    TeamModel.findByIdAndDelete(id)
+    playersIds = [];
+
+    TeamModel.findById(id)
+        .then((team) => {
+            team.players.forEach((player) => {
+                playersIds.push(player._id);
+            })
+
+            playersIds.forEach((id) => {
+                PlayerModel.findByIdAndDelete(id)
+                    .then(() => {
+                        console.log(`Player with id:${id} deleted!`);
+                    })
+            })
+        })
+    
+    
+
+    UserModel.findOneAndUpdate({ username }, { $pull: { myTeams: id } })
         .then(() => {
-            UserModel.findOneAndUpdate({ username }, { $pull: { myTeams: id } })
+            TeamModel.findByIdAndDelete(id)
                 .then(() => {
                     res.redirect('/profile');
-                })
-        }).catch((err) => {
-            next(err);
+                }).catch((err) => {
+                    res.render('profile/profile', {error: 'Team delete failed!',username});
+                });
         })
 });
 
@@ -64,7 +82,7 @@ router.get('/profile/:id', (req, res, next) => {
         .then((team) => {
             res.render('team/team', { team, username })
         }).catch((err) => {
-            next(err);
+            res.redirect('/profile', { error: 'Team not  found!' });
         });
 });
 
@@ -90,7 +108,7 @@ router.post('/profile/:id/edit-team', (req, res, next) => {
         .then(() => {
             res.redirect('/profile');
         }).catch((err) => {
-            next(err);
+            res.redirect('/profile', { error: 'Team edit failed!' });
         })
 });
 

@@ -41,7 +41,6 @@ router.post('/profile/edit', (req, res, next) => {
             }).catch((err) => {
                 next(err);
             });
-        
         // To tell JS to come out off this function
         return;
     }

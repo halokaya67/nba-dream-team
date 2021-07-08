@@ -33,17 +33,15 @@ Add a competition mode where teams can compete against each other.
 - Favorite players
 - View team
 - Edit team
-- Favorite team
-
 
 ## Routes:
 - GET / 
     - Renders the homepage
 
-- GET /auth/signup 
+- GET /signup 
     - Renders the signup form
     
-- POST /auth/signup
+- POST /signup
     - Renders signup form with en error if user login fails
     - Redirects to /profile if user logs in
     - body:
@@ -51,17 +49,17 @@ Add a competition mode where teams can compete against each other.
         - email
         - password
 
-- GET /auth/login
+- GET /login
     - Renders the login form
 
-- POST /auth/login
+- POST /login
     - Redirects to /profile if user logs in 
     - Renders login form with an error if user login fails
     - body:
         - username
         - password
 
-- POST /auth/logout
+- GET /logout
     - Redirects to / after logout
 
 - GET /profile
@@ -80,15 +78,49 @@ Add a competition mode where teams can compete against each other.
         - password
         - age
         - country
-        - favouriteTeam
+        - favTeam
         - aboutMe
 
-- GET /profile/myteam/edit
-    - Renders my team edit form
+- POST /profile/delete
+    - Deletes the user profile
+    - Redirects user to / if it's successful
+    - Renders profile edit form with an error if user fails
 
-- POST /profile/myteam/edit
-    - Redirects to /profile/myteam/edit page if it's successful
-    - Renders my team edit form with an error if user fails
+- POST /upload
+    - Sets the user profile pic
+    - Redirects user to /profile if it's successful
+    - Renders profile edit form with an error if user fails
+
+- GET /profile/create-team
+    - Renders the create team form
+
+- POST /profile/create-team
+    - Creates a team and pushes it into user model
+    - Redirects to /profile if it's successful
+    - Renders create team form with an error if the user fails
+
+- POST /profile/:id/delete-team
+    - Deletes the team and every connected element
+    - Redirects to /profile if it's successful
+    - Renders profile page with an error if user fails
+
+- GET /profile/:id
+    - Renders team page if it's successful
+    - Redirects to /profile with an error if user fails
+
+- GET /profile/:id/edit-team
+    - Renders edit team form if it's successful
+    - Redirects to /profile with an error if user fails
+
+- POST /profile/:id/edit-team
+    - Updates the team element info
+    - Redirects to /profile if it's successful
+    - Redirects to /profile with an error if user fails
+
+- POST /upload/:id/team-logo
+    - Sets the team logo
+    - Redirects user to /profile if it's successful
+    - Renders edit team form with an error if user fails
 
 ## Models
 
@@ -99,27 +131,34 @@ email: String
 password: String
 ```
 
-Profile model
+Player model
 ```
-imageUrl: String
-username: String
-email: String
-password: String
-age: Number
-country: String
-favouriteTeam: Array
-favouritePlayers: Array
-aboutMe: String
+first_name: String
+last_name: String
+team_name: String
+height_feet: Number
+height_inches: Number
+weight_pounds: Number
+position: String
 ```
 
+Team model
+```
+name: String
+imageUrl: String
+players: {
+    ref: 'Player'
+    type: ObjectId
+}
+```
 ## Links
 
 ### Trello
-Trello Link
+https://trello.com/b/Xy8aIqsc/nba-dream-team
 
 ### Git
 https://github.com/halokaya67/nba-dream-team
 Deploy Link
 
 ### Slides
-Slides Link
+https://docs.google.com/presentation/d/1Umk8ae6Evt-DWLYJeJhL20IP9RNI0NdIR0EK-Cu4YUk/edit?usp=sharing
