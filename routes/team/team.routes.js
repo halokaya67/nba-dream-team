@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+
+// models required/used
 const UserModel = require('../../models/User.model');
 const PlayerModel = require('../../models/Player.model');
 const TeamModel = require('../../models/Team.model')
 const uploader = require('../../config/cloudinary.config');
 const { getPlayerByFullName, getPlayersByFullName, getPlayerById } = require("../../middlewares/middleware");
 
+// render create team view
 router.get('/profile/create-team', (req, res, next) => {
     const {username} = req.session.loggedInUser;
     res.render('team/create-team', {username});
@@ -15,6 +18,7 @@ router.post('/profile/create-team', (req, res, next) => {
     const { name } = req.body
     const {username} = req.session.loggedInUser;
 
+    // make sure all fields entered
     if (!name) {
         res.render('team/create-team', {error: 'Please enter all fields'}) 
         return;
@@ -31,6 +35,7 @@ router.post('/profile/create-team', (req, res, next) => {
         });
 });
 
+// Dynamic route for deleting teams
 router.post('/profile/:id/delete-team', (req, res, next) => {
     let { username } = req.session.loggedInUser;
     let id = req.params.id;
@@ -47,6 +52,7 @@ router.post('/profile/:id/delete-team', (req, res, next) => {
         })
 });
 
+// route for handling team select
 router.get('/profile/:id', (req, res, next) => {
     const {username} = req.session.loggedInUser;
     let id = req.params.id;
@@ -60,6 +66,7 @@ router.get('/profile/:id', (req, res, next) => {
         });
 });
 
+// route for editing Team
 router.get('/profile/:id/edit-team', (req, res, next) => {
     let {username} = req.session.loggedInUser;
     let id = req.params.id;
@@ -72,6 +79,7 @@ router.get('/profile/:id/edit-team', (req, res, next) => {
         })
 });
 
+// post route after edit team fill
 router.post('/profile/:id/edit-team', (req, res, next) => {
     let id = req.params.id
     const { name } = req.body;
@@ -83,6 +91,8 @@ router.post('/profile/:id/edit-team', (req, res, next) => {
             next(err);
         })
 });
+
+// handling team image
 
 router.post('/upload/:id/team-logo', uploader.single("imageUrl"), (req, res, next) => {
     // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
