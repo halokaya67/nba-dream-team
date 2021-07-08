@@ -29,7 +29,7 @@
             <button class="btn btn-outline-primary fw-bold text-center" type="submit" id="button-addon2">Search</button>
         </div>
     </form>
-    <div id="players-container" class="text-light overflow-auto my-3">
+    <div id="players-container" class="text-light overflow-auto">
         {{#each playersArr}}
             <form action="/profile/{{../team._id}}/add-team-player" method="POST" class="m-2">
                 <button type="submit" name="player" value="{{this.id}}" class="btn d-flex flex-row justify-content-center w-100 player-card">

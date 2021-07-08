@@ -67,6 +67,7 @@ router.post('/profile/edit', (req, res, next) => {
         })
 });
 
+// profile delete
 router.post('/profile/delete', (req, res, next) => {
     let {username} = req.session.loggedInUser;
 
@@ -79,6 +80,7 @@ router.post('/profile/delete', (req, res, next) => {
         })
 });
 
+// Profile pic image upload 
 router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
     // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
     console.log('file is: ', req.file)
