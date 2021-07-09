@@ -27,8 +27,6 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const axios = require('axios');
 
-
-
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -57,11 +55,6 @@ app.use("/", playerRoutes);
 
 const teamRoutes = require('./routes/team/team.routes');
 app.use("/", teamRoutes);
-
-
-
-
-
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

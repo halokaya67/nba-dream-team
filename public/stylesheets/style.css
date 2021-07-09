@@ -26,7 +26,7 @@ body {
 
 #info-container {
     width: 400px;
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
     margin-left: 50px;
 }
 
@@ -46,7 +46,7 @@ a img {
     width: 50px;
 }
 
-span img {
+p img {
     width: 20px;
 }
 
@@ -98,7 +98,7 @@ a.nav-link:hover {
 }
 
 #profile-container {
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
 #profilePic {
@@ -138,7 +138,7 @@ a.nav-link:hover {
 
 #addPlayer-container {
     height: 860px;
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
 #search-form {
@@ -201,7 +201,7 @@ a.nav-link:hover {
 }
 
 #team-players-container {
-    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
     height: 600px;
 }
 
@@ -215,4 +215,17 @@ a.nav-link:hover {
 
 #scroll-container {
     height: 650px;
+}
+
+#error-page {
+    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+#error-container {
+    height: 700px;
+}
+
+#error-img {
+    width: 400px;
+    height: 350px;
 }

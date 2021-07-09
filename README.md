@@ -122,6 +122,20 @@ Add a competition mode where teams can compete against each other.
     - Redirects user to /profile if it's successful
     - Renders edit team form with an error if user fails
 
+- GET /profile/add-player
+    - Renders add player form
+
+- POST /profile/add-player
+    - Fetches the player from the API
+    - Creates a player with the data coming from the API
+    - Pushes the player into user model
+    - Redirects to profile page
+
+- POST /profile/list-players
+    - Makes an API call with the name written in the input
+    - Renders add player page with the list if it's successful
+    - Shows error if user fails
+
 ## Models
 
 User model
