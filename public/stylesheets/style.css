@@ -271,13 +271,16 @@ a.nav-link:hover {
     width: 2.7vw;
   }
   #scroll-container {
-    height: 70vh !important;
+    height: 70vh;
   }
 }
 
 @media screen and (max-width: 600px) {
   #userLink {
     display: none !important;
+  }
+  #scroll-container {
+    height: 68vh;
   }
 }
 
