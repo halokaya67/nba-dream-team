@@ -1,24 +1,29 @@
-<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid justify-content-between">
-        <a href="/profile" class="navbar-brand p-2 fs-4">
-            <img class="brand me-1" src="/images/favicon.png" alt="brand" />
-            NBA Dream Team
-        </a>
-        <ul class="d-flex flex-row mx-0 m-auto">
-            {{#if isLoggedIn}}
-                <li class="nav-item d-flex align-items-center justify-content-end nav-user">
-                    <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{username}}!</a></p>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="/logOut">Log Out</a>
-                </li>
-            {{/if}}
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid justify-content-between">
+    <a href="/profile" class="navbar-brand p-2 fs-4 me-0">
+      <img class="brand me-1" src="/images/favicon.png" alt="brand" />
+      NBA Dream Team
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapsedContent" aria-controls="navbarCollapsedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapsedContent">
+      <ul class="navbar-nav my-auto">
+        {{#if isLoggedIn}}
+          <li id="userLink" class="nav-item d-flex align-items-center justify-content-end nav-user">
+              <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{user.username}}!</a></p>
+          </li>
+          <li class="nav-item text-center">
+              <a class="nav-link fw-bold" href="/logOut">Log Out</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>    
+  </div>
 </nav>
 
 <a class="position-absolute p-3" href="/profile">
-    <img src="/images/back.png" alt="back-button" />
+    <img class="back-button" src="/images/back.png" alt="back-button" />
 </a>
 
 <div class="container d-flex justify-content-center" id="team-players-container">
@@ -27,7 +32,7 @@
             <h1 class="display-1 text-center m-3">{{team.name}} Players</h1>
             <div class="px-2 overflow-auto" id="scroll-container">
                 <form action="/profile/{{team._id}}/add-team-player" method="GET" class="my-2 py-2 add-card">
-                    <button id="add-team-player" class="btn m-auto add-button shadow-none d-flex align-items-center">
+                    <button class="btn m-auto add-button shadow-none d-flex align-items-center">
                         <img class="mx-3" src="/images/add.png" alt="add-button"/>
                         <h3 class="d-flex align-items-center text-dark">Add a New Player</h3>
                     </button>

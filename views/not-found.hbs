@@ -1,5 +1,5 @@
-<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid justify-content-between brand-container">
         <a href="/" class="navbar-brand p-2 fs-4">
             <img class="brand me-1" src="/images/favicon.png" alt="brand">
             NBA Dream Team
@@ -7,12 +7,14 @@
     </div>
 </nav>
 
-<div id="error-container" class="container d-flex justify-content-center my-5 text-light">
-    <div class="d-flex justify-content-center align-items-center">
-        <img id="error-img" src="/images/404.png" alt="404"/>
-    </div>
-    <div id="error-page" class="d-flex flex-column justify-content-center mx-5">
-        <h1 class="display-1 fw-bold">Sorry, but this page does not exist!</h1>
-        <h4>This route does not exist on the app! Check if everything is ok! Check your routes to see what might have happened</h4>
+<div class="container d-flex align-items-center text-light mt-5">
+    <div id="error-container" class="row">
+        <div class="col-lg-4 d-flex justify-content-center align-items-center mb-3">
+            <img class="d-flex" id="error-img" src="/images/404.png" alt="404"/>
+        </div>
+        <div id="error-page" class="col-lg-8">
+            <h1 class="display-1 fw-bold">Sorry, but this page does not exist!</h1>
+            <h4>This route does not exist on the app! Check if everything is ok! Check your routes to see what might have happened</h4>
+        </div>
     </div>
 </div>

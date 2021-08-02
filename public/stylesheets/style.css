@@ -1,231 +1,287 @@
+@media screen and (max-width: 520px) {
+  #footer-info {
+    font-size: 2.7vw;
+  }
+
+  p img {
+    width: 2.7vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #userLink {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile-container {
+    margin-top: 0 !important;
+  }
+  .profile-circular-buttons {
+    width: 100% !important;
+  }
+  #myProfile {
+    max-width: 100% !important;
+  }
+}
+
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 body {
-    padding: 0;
-    padding-bottom: 70px;
-    margin: 0;
-    background-image: url(../images/background.webp);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  padding-bottom: 70px;
+  background-image: url(../images/background.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 .brand {
-    width: 40px;
+  width: 40px;
 }
 
 #homepage-create {
-    width: 450px;
-    height: 750px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
-    margin-right: 50px;
+  max-width: 400px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  margin: 0;
 }
 
 #info-container {
-    width: 400px;
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
-    margin-left: 50px;
+  max-width: 400px;
+  text-shadow: 1px 1px 20px rgb(0, 0, 0);
+  margin: 0;
+}
+
+#index-signup-text {
+  font-size: 18px;
 }
 
 #signup-link {
-    color: #80ffdb;
+  color: #80ffdb;
 }
 
 button {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
 }
 
 form img {
-    width: 50px;
+  width: 50px;
 }
 
-a img {
-    width: 50px;
+div img {
+  width: 50px;
 }
 
 p img {
-    width: 20px;
+  width: 20px;
 }
 
 #signup-container {
-    width: 450px;
-    height: 700px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  margin-top: 50px;
+  width: 450px;
+  max-height: 600px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 #login-container {
-    width: 450px;
-    height: 600px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  margin-top: 50px;
+  width: 450px;
+  max-height: 600px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 .error {
-    box-shadow: 0px 0px 50px rgb(255, 0, 0);
+  box-shadow: 0px 0px 50px rgb(255, 0, 0);
 }
 
 .error:hover {
-    background-color: #dc3545;
-    cursor: auto;
+  background-color: #dc3545;
+  cursor: auto;
 }
 
 a.nav-link {
-    color: white;
+  color: white;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a.nav-link:hover {
-    color: rgb(175, 175, 175);
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+  color: rgb(175, 175, 175);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .nav-user {
-    width: 250px;
+  width: 250px;
 }
 
 #edit-profile-container {
-    height: 950px;
-    width: 400px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  max-width: 400px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  margin-top: 80px;
 }
 
 #profile-container {
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
 #profilePic {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
 }
 
 .profile-info {
-    list-style: none;
+  list-style: none;
 }
 
 #myProfile {
-    background-color: rgba(240, 248, 255, 0.774);
-    width: 250px;
-    text-shadow: none;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  background-color: rgba(240, 248, 255, 0.774);
+  max-width: 250px;
+  text-shadow: none;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 .player-card {
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
-    text-shadow: none;
-    border-radius: 100px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+  text-shadow: none;
+  border-radius: 100px;
 }
 
 .player-card p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .add-card {
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
-    text-shadow: none;
-    border-radius: 100px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.678);
+  text-shadow: none;
+  border-radius: 100px;
 }
 
 #addPlayer-container {
-    height: 860px;
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
+  margin-top: 20px;
+  height: 860px;
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
-#search-form {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
-    border-color: #212529;
+.search-form {
+  max-width: 1000px;
+  width: 100%;
+}
+
+#search-input {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  border-color: #212529;
 }
 
 #button-addon2 {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 #players-container {
-    height: 600px;
+  height: 600px;
 }
 
 #create-team-container {
-    width: 450px;
-    margin-top: 100px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  max-width: 450px;
+  margin-top: 80px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 #edit-team-container {
-    width: 450px;
-    margin-top: 100px;
-    background-color: rgba(240, 248, 255, 0.774);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
+  max-width: 450px;
+  margin-top: 80px;
+  background-color: rgba(240, 248, 255, 0.774);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.678);
 }
 
 .edit-button {
-    color: #ffb703;
-    box-shadow: none;
+  color: #ffb703;
+  box-shadow: none;
 }
 
 .edit-button:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .delete-button {
-    color: #d00000;
-    box-shadow: none;
+  color: #d00000;
+  box-shadow: none;
 }
 
 .delete-button:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 #teamLogo {
-    width: 70px;
-    height: 70px;
-    border-radius: 100px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
 }
 
 .go-button {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .go-button:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 #team-players-container {
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
-    height: 600px;
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
+  height: 600px;
+  margin-top: 50px;
 }
 
 .scrollable-container {
-    height: 320px;
-}
-
-#add-team-player {
-    padding: 0 125px;
+  height: 320px;
 }
 
 #scroll-container {
-    height: 650px;
+  height: 650px;
 }
 
 #error-page {
-    text-shadow: 0px 0px 10px rgb(0, 0, 0);
-}
-
-#error-container {
-    height: 700px;
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
 #error-img {
-    width: 400px;
-    height: 350px;
+  max-width: 400px;
+  width: 70%;
+  height: fit-content;
+}
+
+#error-container {
+  padding: 10% 0;
+}
+
+#footer-info {
+  width: 50%;
+}
+
+.row {
+  margin: 0;
+}
+
+.back-button {
+  width: 50px;
 }
