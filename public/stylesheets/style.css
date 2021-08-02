@@ -119,8 +119,12 @@ a.nav-link:hover {
   border-radius: 200px;
 }
 
-.profile-info {
+#profile-bio {
   list-style: none;
+  word-break: break-word;
+}
+
+#profile-bio li {
 }
 
 #myProfile {
