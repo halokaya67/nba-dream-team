@@ -12,14 +12,7 @@ const { getPlayerByFullName, getPlayersByFullName, getPlayerById } = require("..
 router.get('/profile/add-player', (req, res, next) => {
     // validating username
     let { username } = req.session.loggedInUser
-    
-    UserModel.find({ username })
-        .then((user) => {
-            // rendering welcome back message
-            res.render('player/add-player', {user: user[0]});
-        }).catch((err) => {
-            next(err);
-        })
+    res.render('player/add-player', {username});
 })
 
 
@@ -68,7 +61,7 @@ router.post('/profile/list-players', (req, res, next) => {
             players.forEach((obj) => {
                 playersArr =  obj.data.data;
             });
-            res.render('player/add-player', {playersArr, username, })
+            res.render('player/add-player', {playersArr, username})
         }).catch((err) => {
             next(err);
         })

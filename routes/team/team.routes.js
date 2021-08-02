@@ -11,12 +11,7 @@ const { getPlayerByFullName, getPlayersByFullName, getPlayerById } = require("..
 // render create team view
 router.get('/profile/create-team', (req, res, next) => {
     const { username } = req.session.loggedInUser;
-    UserModel.find({ username })
-        .then((user) => {
-            res.render('team/create-team', {user: user[0]});
-        }).catch((err) => {
-            next(err);
-        })
+    res.render('team/create-team', {username});
 });
 
 router.post('/profile/create-team', (req, res, next) => {
@@ -85,10 +80,7 @@ router.get('/profile/:id', (req, res, next) => {
     TeamModel.findById(id)
         .populate('players')
         .then((team) => {
-            UserModel.find({ username })
-                .then((user) => {
-                    res.render('team/team', {team, user: user[0]});
-                })
+            res.render('team/team', {team, username});
         }).catch((err) => {
             res.redirect('/profile', { error: 'Team not  found!' });
         });
@@ -101,10 +93,7 @@ router.get('/profile/:id/edit-team', (req, res, next) => {
 
     TeamModel.findById(id)
         .then((team) => {
-            UserModel.find({ username })
-                .then((user) => {
-                    res.render('team/edit-team', {team, user: user[0]});
-                })
+            res.render('team/edit-team', {team, username});
         }).catch((error) => {
             res.redirect('/profile', { error: 'Team not  found!' });
         })
