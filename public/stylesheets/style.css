@@ -1,31 +1,3 @@
-@media screen and (max-width: 520px) {
-  #footer-info {
-    font-size: 2.7vw;
-  }
-
-  p img {
-    width: 2.7vw;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #userLink {
-    display: none !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #profile-container {
-    margin-top: 0 !important;
-  }
-  .profile-circular-buttons {
-    width: 100% !important;
-  }
-  #myProfile {
-    max-width: 100% !important;
-  }
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -257,7 +229,7 @@ a.nav-link:hover {
 }
 
 #scroll-container {
-  height: 650px;
+  height: 65vh;
 }
 
 #error-page {
@@ -284,4 +256,38 @@ a.nav-link:hover {
 
 .back-button {
   width: 50px;
+}
+
+@media screen and (max-width: 520px) {
+  #footer-info {
+    font-size: 2.7vw;
+  }
+
+  p img {
+    width: 2.7vw;
+  }
+  #scroll-container {
+    height: 70vh !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #userLink {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile-container {
+    margin-top: 0 !important;
+  }
+  .profile-circular-buttons {
+    width: 100% !important;
+  }
+  #myProfile {
+    max-width: 100% !important;
+  }
+  #scroll-container {
+    height: 68vh;
+  }
 }
