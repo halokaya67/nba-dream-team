@@ -11,9 +11,15 @@ const { getPlayerByFullName, getPlayersByFullName, getPlayerById } = require("..
 // Fav player render
 router.get('/profile/add-player', (req, res, next) => {
     // validating username
-    let {username} = req.session.loggedInUser    
-    // rendering welcome back message
-    res.render('player/add-player', {username});
+    let { username } = req.session.loggedInUser
+    
+    UserModel.find({ username })
+        .then((user) => {
+            // rendering welcome back message
+            res.render('player/add-player', {user: user[0]});
+        }).catch((err) => {
+            next(err);
+        })
 })
 
 

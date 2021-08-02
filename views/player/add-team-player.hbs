@@ -1,31 +1,36 @@
-<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid justify-content-between">
-        <a href="/profile" class="navbar-brand p-2 fs-4">
-            <img class="brand me-1" src="/images/favicon.png" alt="brand" />
-            NBA Dream Team
-        </a>
-        <ul class="d-flex flex-row mx-0 m-auto">
-            {{#if isLoggedIn}}
-                <li class="nav-item d-flex align-items-center justify-content-end nav-user">
-                    <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{username}}!</a></p>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="/logOut">Log Out</a>
-                </li>
-            {{/if}}
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid justify-content-between">
+    <a href="/profile" class="navbar-brand p-2 fs-4 me-0">
+      <img class="brand me-1" src="/images/favicon.png" alt="brand" />
+      NBA Dream Team
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapsedContent" aria-controls="navbarCollapsedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapsedContent">
+      <ul class="navbar-nav my-auto">
+        {{#if isLoggedIn}}
+          <li id="userLink" class="nav-item d-flex align-items-center justify-content-end nav-user">
+              <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{user.username}}!</a></p>
+          </li>
+          <li class="nav-item text-center">
+              <a class="nav-link fw-bold" href="/logOut">Log Out</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>    
+  </div>
 </nav>
 
 <a class="position-absolute p-3" href="/profile/{{team._id}}">
-    <img src="/images/back.png" alt="back-button"/>
+    <img class="back-button" src="/images/back.png" alt="back-button"/>
 </a>
 
 <div class="d-flex flex-column justify-content-center align-items-center" id="addPlayer-container">
-    <h1 class="display-2 text-light m-5">Add a Team Player</h1>
-    <form class="w-50" action="/profile/{{team._id}}/list-players" method="POST">
+    <h1 class="display-2 text-light m-5 text-center">Add a Team Player</h1>
+    <form class="search-form" action="/profile/{{team._id}}/list-players" method="POST">
         <div class="input-group input-group-lg mb-4">
-            <input name='search' type="text" class="form-control py-3 text-center text-light bg-dark" id="search-form" placeholder="Search the player's name" aria-describedby="button-addon2">
+            <input name='search' type="text" class="form-control py-3 text-center text-light bg-dark" id="search-input" placeholder="Search the player's name" aria-describedby="button-addon2">
             <button class="btn btn-outline-primary fw-bold text-center" type="submit" id="button-addon2">Search</button>
         </div>
     </form>

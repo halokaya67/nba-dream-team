@@ -1,104 +1,186 @@
-<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid justify-content-between">
-        <a href="/profile" class="navbar-brand p-2 fs-4">
-            <img class="brand me-1" src="/images/favicon.png" alt="brand" />
-            NBA Dream Team
-        </a>
-        <ul class="d-flex flex-row mx-0 m-auto">
-            {{#if isLoggedIn}}
-                <li class="nav-item d-flex align-items-center justify-content-end nav-user">
-                    <p class="text-light fw-bold d-inline m-0">Welcome back, <a class="nav-link d-inline px-1" href="/profile">{{user.username}}!</a></p>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="/logOut">Log Out</a>
-                </li>
-            {{/if}}
-        </ul>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid justify-content-between">
+    <a href="/profile" class="navbar-brand p-2 fs-4 me-0">
+      <img class="brand me-1" src="/images/favicon.png" alt="brand" />
+      NBA Dream Team
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapsedContent"
+      aria-controls="navbarCollapsedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarCollapsedContent"
+    >
+      <ul class="navbar-nav my-auto">
+        {{#if isLoggedIn}}
+          <li
+            id="userLink"
+            class="nav-item d-flex align-items-center justify-content-end nav-user"
+          >
+            <p class="text-light fw-bold d-inline m-0">Welcome back,
+              <a
+                class="nav-link d-inline px-1"
+                href="/profile"
+              >{{user.username}}!</a></p>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link fw-bold" href="/logOut">Log Out</a>
+          </li>
+        {{/if}}
+      </ul>
     </div>
+  </div>
 </nav>
 
-<div class="container d-flex justify-content-center" id="profile-container">
-    <div class="row align-items-center w-100">
-        <div class="col-8 text-light">
-            <h1 class="display-4 text-center m-1">My Favourite Players</h1>
-            <div class="p-0 overflow-auto scrollable-container">
-                <form action="/profile/add-player" method="GET" class="my-2 py-2 add-card m-auto w-75">
-                    <button class="btn m-auto add-button shadow-none d-flex align-items-center">
-                        <img class="mx-3" src="/images/add.png" alt="add-button"/>
-                        <h3 class="d-flex align-items-center text-dark">Add a New Player</h3>
-                    </button>
-                </form>
-                {{#each favPlayers}}
-                    <div class="d-flex px-3 text-dark player-card text-center w-75 m-auto my-2">
-                        <div class="m-2 col-11">
-                            <h4 class="fw-bold text-decoration-underline">{{this.first_name}} {{this.last_name}}</h4>
-                            <p class="m-0">
-                                <span class="text-nowrap">
-                                    <b>Height: </b>{{this.height_feet}}' {{this.height_inches}}"
-                                </span>
-                                <span class="text-nowrap">
-                                    <b>Weight: </b>{{this.weight_pounds}} lb
-                                </span>
-                                <span class="text-nowrap">
-                                    <b>Team: </b>{{this.team_name}}
-                                </span>
-                                <span class="text-nowrap">
-                                    <b>Pos: </b>{{this.position}}
-                                </span>
-                            </p>      
-                        </div>
-                        <form class="d-flex" action="/profile/{{this._id}}/delete-player" method="POST">
-                            <button value="{{this._id}}" class="btn p-0 delete-button d-flex align-items-center bi bi-trash-fill fs-3"></button>
-                        </form>
-                    </div>
-                {{/each}}
-            </div>
+<div class="container mx-auto mt-5" id="profile-container">
+  <div class="row align-items-">
+    <div class="col-md-8 text-light">
+      <div class="p-0 overflow-auto scrollable-container">
+        <h1 class="display-4 text-center m-1">My Favourite Players</h1>
+        <form
+          action="/profile/add-player"
+          method="GET"
+          class="my-2 py-2 add-card m-auto w-75 profile-circular-buttons"
+        >
+          <button
+            class="btn m-auto add-button shadow-none d-flex align-items-center"
+          >
+            <img class="mx-3" src="/images/add.png" alt="add-button" />
+            <h3 class="d-flex align-items-center text-dark">Add a New Player</h3>
+          </button>
+        </form>
+        {{#each favPlayers}}
+          <div
+            class="d-flex justify-content-between py-2 px-3 text-dark player-card text-center m-auto my-2 w-75 profile-circular-buttons"
+          >
             <div>
-                <h1 class="display-4 text-center m-1">My Teams</h1>
-                <div class="p-0 overflow-auto scrollable-container">
-                    <form action="/profile/create-team" method="GET" class="my-2 py-2 add-card m-auto w-75">
-                        <button class="btn m-auto add-button shadow-none d-flex align-items-center">
-                            <img class="mx-3" src="/images/add.png" alt="add-button"/>
-                            <h3 class="d-flex align-items-center text-dark">Add a New Team</h3>
-                        </button>
-                    </form>
-                    {{#each myTeams}}
-                        <div class="d-flex justify-content-center my-2 p-2 player-card text-dark text-center w-75 m-auto">
-                            <a class="d-flex text-decoration-none" href="/profile/{{this._id}}/edit-team">
-                                <button class="btn py-0 edit-button bi bi-pencil-square fs-3"></button>
-                            </a>
-                            <a href="/profile/{{this.id}}" class="d-flex col-10 flex-row justify-content-center text-decoration-none text-dark">
-                                <img class="mx-2" id="teamLogo" src="{{this.imageUrl}}" alt="team-logo" />
-                                <div class="mx-2">
-                                    <h3 class="fw-bold text-decoration-underline">{{this.name}}</h3>
-                                    <p class="m-0">
-                                        <b>Players Count: </b>{{this.players.length}}
-                                    </p>
-                                </div>
-                            </a>
-                            <form class="d-flex" action="/profile/{{this.id}}/delete-team" method="POST">
-                                <button class="btn delete-button bi bi-trash-fill fs-3"></button>
-                            </form>
-                        </div>
-                    {{/each}}
-                </div>
+              <h4 class="fw-bold text-decoration-underline">{{this.first_name}}
+                {{this.last_name}}</h4>
+              <p class="m-0">
+                <span class="text-nowrap">
+                  <b>Height: </b>{{this.height_feet}}'
+                  {{this.height_inches}}"
+                </span>
+                <span class="text-nowrap">
+                  <b>Weight: </b>{{this.weight_pounds}}
+                  lb
+                </span>
+                <span class="text-nowrap">
+                  <b>Team: </b>{{this.team_name}}
+                </span>
+                <span class="text-nowrap">
+                  <b>Pos: </b>{{this.position}}
+                </span>
+              </p>
             </div>
+            <form
+              id="player-delete-button"
+              class="d-flex"
+              action="/profile/{{this._id}}/delete-player"
+              method="POST"
+            >
+              <button
+                value="{{this._id}}"
+                class="btn delete-button d-flex align-items-center bi bi-trash-fill fs-3"
+              ></button>
+            </form>
+          </div>
+        {{/each}}
+      </div>
+      <div>
+        <h1 class="display-4 text-center m-1">My Teams</h1>
+        <div class="p-0 overflow-auto scrollable-container">
+          <form
+            action="/profile/create-team"
+            method="GET"
+            class="my-2 py-2 add-card m-auto w-75 profile-circular-buttons"
+          >
+            <button
+              class="btn m-auto add-button shadow-none d-flex align-items-center"
+            >
+              <img class="mx-3" src="/images/add.png" alt="add-button" />
+              <h3 class="d-flex align-items-center text-dark">Add a New Team</h3>
+            </button>
+          </form>
+          {{#each myTeams}}
+            <div
+              class="d-flex justify-content-between my-2 py-2 px-3 player-card text-dark text-center m-auto w-75 profile-circular-buttons"
+            >
+              <a
+                class="d-flex text-decoration-none"
+                href="/profile/{{this._id}}/edit-team"
+              >
+                <button
+                  class="btn edit-button bi bi-pencil-square fs-3"
+                ></button>
+              </a>
+              <a
+                href="/profile/{{this.id}}"
+                class="d-flex flex-row justify-content-center text-decoration-none text-dark"
+              >
+                <img
+                  class="mx-2"
+                  id="teamLogo"
+                  src="{{this.imageUrl}}"
+                  alt="team-logo"
+                />
+                <div class="mx-2">
+                  <h3
+                    class="fw-bold text-decoration-underline"
+                  >{{this.name}}</h3>
+                  <p class="m-0">
+                    <b>Players Count: </b>{{this.players.length}}
+                  </p>
+                </div>
+              </a>
+              <form
+                id="team-delete-button"
+                class="d-flex"
+                action="/profile/{{this.id}}/delete-team"
+                method="POST"
+              >
+                <button
+                  class="btn delete-button bi bi-trash-fill fs-3"
+                ></button>
+              </form>
+            </div>
+          {{/each}}
         </div>
-        <div id='myProfile' class="col-4 d-flex flex-column align-items-center">
-            <h1 class="text-nowrap mt-5">My Profile</h1>
-            <img id='profilePic' class='my-4' src="{{user.imageUrl}}" alt="profile-pic">
-            <ul class="text-center text-nowrap p-0" id="profile-bio">
-                <li class="fs-3 fw-bold profile-info text-decoration-underline m-2">{{user.username}}</li>
-                <li class="fs-5 profile-info m-1">Age: {{user.age}}</li>
-                <li class="fs-5 profile-info m-1">{{user.country}}</li>
-                <li class="fs-5 profile-info m-1">{{user.favTeam}}</li>
-                <li class="fs-5 profile-info m-1">{{user.aboutMe}}</li>
-            </ul>
-            <a href="/profile/edit" class="button">
-                <button class="btn btn-primary fw-bold px-5 py-2 mb-5 mt-3 text-nowrap">
-                    Edit Profile
-                </button>
-            </a>
-        </div>
+      </div>
     </div>
+    <div
+      id="myProfile"
+      class="col-md-4 d-flex flex-column align-items-center m-auto"
+    >
+      <h1 class="text-nowrap mt-5">My Profile</h1>
+      <img
+        id="profilePic"
+        class="my-4"
+        src="{{user.imageUrl}}"
+        alt="profile-pic"
+      />
+      <ul class="text-center text-nowrap p-0" id="profile-bio">
+        <li
+          class="fs-3 fw-bold profile-info text-decoration-underline m-2"
+        >{{user.username}}</li>
+        <li class="fs-5 profile-info m-1">Age: {{user.age}}</li>
+        <li class="fs-5 profile-info m-1">{{user.country}}</li>
+        <li class="fs-5 profile-info m-1">{{user.favTeam}}</li>
+        <li class="fs-5 profile-info m-1">{{user.aboutMe}}</li>
+      </ul>
+      <a href="/profile/edit" class="button">
+        <button class="btn btn-primary fw-bold px-5 py-2 mb-5 mt-3 text-nowrap">
+          Edit Profile
+        </button>
+      </a>
+    </div>
+  </div>
 </div>
